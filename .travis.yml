@@ -13,6 +13,8 @@ install:
 
 before_script:
   - mkdir -p build/logs
+  - mysql -e 'create database `harp-orm/materialized-path`;'
+  - mysql harp-orm/materialized-path < tests/mysql.sql
 
 script:
   - phpunit --coverage-clover build/logs/clover.xml
