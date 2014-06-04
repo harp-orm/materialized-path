@@ -22,7 +22,7 @@ trait MPModelTrait
      */
     public function getParent()
     {
-        return $this->getRepo()->loadLink($this, 'parent')->get();
+        return $this->getLink('parent')->get();
     }
 
     /**
@@ -32,7 +32,7 @@ trait MPModelTrait
     {
         $this->getRepo()->assertModel($model);
 
-        $this->getRepo()->loadLink($this, 'parent')->set($model);
+        $this->getLink('parent')->set($model);
 
         return $this;
     }
@@ -42,7 +42,7 @@ trait MPModelTrait
      */
     public function getChildren()
     {
-        return $this->getRepo()->loadLink($this, 'children');
+        return $this->getLink('children');
     }
 
     /**
