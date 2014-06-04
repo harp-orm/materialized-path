@@ -9,6 +9,8 @@ class MPRepoTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initializeMaterializedPath
+     * @covers ::getMpRepo
+     * @covers ::setMpRepo
      */
     public function testInitialize()
     {
@@ -16,5 +18,7 @@ class MPRepoTraitTest extends AbstractTestCase
 
         $this->assertInstanceOf('Harp\Harp\Rel\BelongsTo', $cat->getRel('parent'));
         $this->assertInstanceOf('Harp\Harp\Rel\HasMany', $cat->getRel('children'));
+
+        $this->assertSame($cat, $cat->getMpRepo());
     }
 }

@@ -61,7 +61,7 @@ trait MPModelTrait
      */
     public function assertNestedModel(AbstractModel $model)
     {
-        if (! $this->getRepo()->isModel($model)) {
+        if (! $this->getRepo()->getMpRepo()->isModel($model)) {
             throw new InvalidArgumentException('Model must be of same repo');
         }
     }
