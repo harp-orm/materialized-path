@@ -52,9 +52,9 @@ class HasManyTest extends AbstractTestCase
 
         $rel = new HasMany('test', $repo, $repo);
 
-        $link = new LinkMany($rel, [$model2]);
+        $link = new LinkMany($model, $rel, [$model2]);
 
-        $result = $rel->update($model, $link);
+        $result = $rel->update($link);
 
         $this->assertCount(0, $result);
 
@@ -62,7 +62,7 @@ class HasManyTest extends AbstractTestCase
             ->add($model1)
             ->remove($model2);
 
-        $result = $rel->update($model, $link);
+        $result = $rel->update($link);
 
         $this->assertSame([$model2, $model1], $result->toArray());
     }

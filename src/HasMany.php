@@ -15,12 +15,11 @@ use Harp\Core\Repo\LinkMany;
 class HasMany extends Rel\HasMany
 {
     /**
-     * @param  AbstractModel $model
      * @param  LinkMany       $link
      */
-    public function update(AbstractModel $model, LinkMany $link)
+    public function update(LinkMany $link)
     {
-        parent::update($model, $link);
+        parent::update($link);
 
         $affected = new Models();
 
@@ -33,7 +32,7 @@ class HasMany extends Rel\HasMany
         foreach ($link->getAdded() as $added) {
             $affected->addAll(
                 $added->setPathAndUpdateDescendants(
-                    $model->getChildrenPath()
+                    $link->getModel()->getChildrenPath()
                 )
             );
         }

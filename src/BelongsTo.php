@@ -14,17 +14,16 @@ use Harp\Core\Repo\LinkOne;
 class BelongsTo extends Rel\BelongsTo
 {
     /**
-     * @param  AbstractModel $model
      * @param  LinkOne       $link
      */
-    public function update(AbstractModel $model, LinkOne $link)
+    public function update(LinkOne $link)
     {
-        parent::update($model, $link);
+        parent::update($link);
 
         if ($link->isChanged()) {
             $path = $link->get()->getChildrenPath();
 
-            return $model->setPathAndUpdateDescendants($path);
+            return $link->getModel()->setPathAndUpdateDescendants($path);
         }
     }
 }

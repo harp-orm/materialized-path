@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "c8adc3bf52136e69ef6e05a9edf2cf5add5de11f"
+                "reference": "3a30b61356938a368e92ab50ed90b95592643771"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/c8adc3bf52136e69ef6e05a9edf2cf5add5de11f",
-                "reference": "c8adc3bf52136e69ef6e05a9edf2cf5add5de11f",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/3a30b61356938a368e92ab50ed90b95592643771",
+                "reference": "3a30b61356938a368e92ab50ed90b95592643771",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "source": "https://github.com/harp-orm/core/tree/master",
                 "issues": "https://github.com/harp-orm/core/issues"
             },
-            "time": "2014-06-04 08:45:19"
+            "time": "2014-06-04 20:02:17"
         },
         {
             "name": "harp-orm/harp",
@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1"
+                "reference": "9951ab190037279c49f08bc84209a2009d8f35e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1",
-                "reference": "52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/9951ab190037279c49f08bc84209a2009d8f35e7",
+                "reference": "9951ab190037279c49f08bc84209a2009d8f35e7",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 "source": "https://github.com/harp-orm/harp/tree/master",
                 "issues": "https://github.com/harp-orm/harp/issues"
             },
-            "time": "2014-06-04 08:36:00"
+            "time": "2014-06-04 20:17:21"
         },
         {
             "name": "harp-orm/query",

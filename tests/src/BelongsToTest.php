@@ -38,15 +38,15 @@ class BelongsToTest extends AbstractTestCase
 
         $rel = new BelongsTo('test', $repo, $repo);
 
-        $link = new LinkOne($rel, $model1);
+        $link = new LinkOne($model1, $rel, $model1);
 
-        $result = $rel->update($model1, $link);
+        $result = $rel->update($link);
 
         $this->assertNull($result);
 
         $link->set($model2);
 
-        $result = $rel->update($model1, $link);
+        $result = $rel->update($link);
 
         $this->assertSame($models, $result);
     }
