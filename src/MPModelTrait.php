@@ -30,7 +30,7 @@ trait MPModelTrait
      */
     public function setParent(AbstractModel $model)
     {
-        $this->assertNestedModel($model);
+        $this->getRepo()->assertModel($model);
 
         $this->getRepo()->loadLink($this, 'parent')->set($model);
 
@@ -58,22 +58,11 @@ trait MPModelTrait
     /**
      * @param  AbstractModel $model
      * @throws InvalidArgumentException If model not part of the repo
-     */
-    public function assertNestedModel(AbstractModel $model)
-    {
-        if (! $this->getRepo()->getMpRepo()->isModel($model)) {
-            throw new InvalidArgumentException('Model must be of same repo');
-        }
-    }
-
-    /**
-     * @param  AbstractModel $model
-     * @throws InvalidArgumentException If model not part of the repo
      * @return boolean
      */
     public function isDescendantOf(AbstractModel $model)
     {
-        $this->assertNestedModel($model);
+        $this->getRepo()->assertModel($model);
 
         return in_array($model->getId(), $this->getPathIds());
     }
@@ -85,7 +74,7 @@ trait MPModelTrait
      */
     public function isAnsestorOf(AbstractModel $model)
     {
-        $this->assertNestedModel($model);
+        $this->getRepo()->assertModel($model);
 
         return $model->isDescendantOf($this);
     }

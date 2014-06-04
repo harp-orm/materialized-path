@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "26f4aed9758c5a68daadd180509817ccb6c0ef04"
+                "reference": "c8adc3bf52136e69ef6e05a9edf2cf5add5de11f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/26f4aed9758c5a68daadd180509817ccb6c0ef04",
-                "reference": "26f4aed9758c5a68daadd180509817ccb6c0ef04",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/c8adc3bf52136e69ef6e05a9edf2cf5add5de11f",
+                "reference": "c8adc3bf52136e69ef6e05a9edf2cf5add5de11f",
                 "shasum": ""
             },
             "require": {
@@ -33,7 +33,6 @@
                     "Harp\\Core\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -41,12 +40,15 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ikerin@gmail.com",
-                    "homepage": "http://www.openbuildings.com",
                     "role": "Author"
                 }
             ],
             "description": "DataMapper style ORM Core Componenets",
-            "time": "2014-06-02 18:11:38"
+            "support": {
+                "source": "https://github.com/harp-orm/core/tree/master",
+                "issues": "https://github.com/harp-orm/core/issues"
+            },
+            "time": "2014-06-04 08:45:19"
         },
         {
             "name": "harp-orm/harp",
@@ -54,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "6335a09af9b69bff740ddc4a086c376537bb7152"
+                "reference": "52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/6335a09af9b69bff740ddc4a086c376537bb7152",
-                "reference": "6335a09af9b69bff740ddc4a086c376537bb7152",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1",
+                "reference": "52c01db89fe2c85a6f14c5ca53e9e9bfe36984b1",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +92,7 @@
                 "source": "https://github.com/harp-orm/harp/tree/master",
                 "issues": "https://github.com/harp-orm/harp/issues"
             },
-            "time": "2014-06-03 07:36:57"
+            "time": "2014-06-04 08:36:00"
         },
         {
             "name": "harp-orm/query",
