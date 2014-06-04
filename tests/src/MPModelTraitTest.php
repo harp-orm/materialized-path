@@ -34,7 +34,6 @@ class MPModelTraitTest extends AbstractTestCase
     /**
      * @expectedException InvalidArgumentException
      * @covers ::setParent
-     * @covers ::assertNestedModel
      */
     public function testSetParentException()
     {
@@ -112,7 +111,6 @@ class MPModelTraitTest extends AbstractTestCase
     /**
      * @dataProvider dataIsAnsestorOf
      * @covers ::isAnsestorOf
-     * @covers ::assertNestedModel
      */
     public function testIsAnsestorOf($ansestorId, $descendantId, $expected)
     {
@@ -125,7 +123,6 @@ class MPModelTraitTest extends AbstractTestCase
     /**
      * @expectedException InvalidArgumentException
      * @covers ::isAnsestorOf
-     * @covers ::assertNestedModel
      */
     public function testIsAnsestorOfException()
     {
@@ -138,7 +135,6 @@ class MPModelTraitTest extends AbstractTestCase
     /**
      * @expectedException InvalidArgumentException
      * @covers ::isDescendantOf
-     * @covers ::assertNestedModel
      */
     public function testIsDescendantOfException()
     {
