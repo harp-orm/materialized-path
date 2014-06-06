@@ -9,18 +9,9 @@ namespace Harp\MP\Test\Repo;
  */
 class Subcategory extends Category
 {
-    private static $instance;
-
-    /**
-     * @return Subcategory
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (self::$instance === null) {
-            self::$instance = new Subcategory('Harp\MP\Test\Model\Subcategory');
-        }
-
-        return self::$instance;
+        return new Subcategory('Harp\MP\Test\Model\Subcategory');
     }
 
     public function initialize()

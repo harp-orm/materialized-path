@@ -11,19 +11,11 @@ use Harp\Harp\AbstractRepo;
  */
 class Dummy extends AbstractRepo
 {
-    private static $instance;
-
-    /**
-     * @return Dummy
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (self::$instance === null) {
-            self::$instance = new Dummy('Harp\MP\Test\Model\Dummy');
-        }
-
-        return self::$instance;
+        return new Dummy('Harp\MP\Test\Model\Dummy');
     }
+
 
     public function initialize()
     {

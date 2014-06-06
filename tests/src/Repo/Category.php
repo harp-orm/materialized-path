@@ -15,18 +15,9 @@ class Category extends AbstractRepo
 {
     use MPRepoTrait;
 
-    private static $instance;
-
-    /**
-     * @return Category
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (self::$instance === null) {
-            self::$instance = new Category('Harp\MP\Test\Model\Category');
-        }
-
-        return self::$instance;
+        return new Category('Harp\MP\Test\Model\Category');
     }
 
     public function initialize()
