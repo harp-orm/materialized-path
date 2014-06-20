@@ -3,7 +3,9 @@
 namespace Harp\MP;
 
 use Harp\Harp\AbstractModel;
+use Harp\Harp\AbstractRepo;
 use Harp\Core\Model\Models;
+use Harp\Core\Repo\AbstractLink;
 use Harp\Query\SQL\SQL;
 use InvalidArgumentException;
 
@@ -16,6 +18,17 @@ trait MPModelTrait
 {
     public $path;
     public $parentId;
+
+    /**
+     * @param  string $name
+     * @return AbstractLink
+     */
+    abstract public function getLink($name);
+
+    /**
+     * @return AbstractRepo
+     */
+    abstract public function getRepo();
 
     /**
      * @return AbstractModel

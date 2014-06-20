@@ -3,6 +3,7 @@
 namespace Harp\MP;
 
 use Harp\Harp\AbstractRepo;
+use Harp\Core\Rel\AbstractRel;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -11,6 +12,8 @@ use Harp\Harp\AbstractRepo;
  */
 trait MPRepoTrait
 {
+    abstract public function addRel(AbstractRel $rel);
+
     public function initializeMaterializedPath()
     {
         return $this
