@@ -6,7 +6,6 @@ use Harp\Harp\AbstractModel;
 use Harp\Harp\AbstractRepo;
 use Harp\Core\Model\Models;
 use Harp\Core\Repo\AbstractLink;
-use Harp\Query\SQL\SQL;
 use InvalidArgumentException;
 
 /**

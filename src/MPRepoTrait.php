@@ -2,7 +2,6 @@
 
 namespace Harp\MP;
 
-use Harp\Harp\AbstractRepo;
 use Harp\Core\Rel\AbstractRel;
 
 /**

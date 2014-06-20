@@ -3,7 +3,6 @@
 namespace Harp\MP;
 
 use Harp\Harp\Rel;
-use Harp\Core\Model\AbstractModel;
 use Harp\Core\Model\Models;
 use Harp\Core\Repo\LinkMany;
 
