@@ -30,6 +30,8 @@ trait MPModelTrait
      */
     abstract public function getRepo();
 
+    abstract public function getId();
+
     /**
      * @return AbstractModel
      */
