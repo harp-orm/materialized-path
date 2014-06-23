@@ -1,11 +1,14 @@
 <?php
 
-namespace Harp\MP\Test;
+namespace Harp\MP\Test\Repo;
+
+use Harp\MP\Test\AbstractTestCase;
+use Harp\MP\Test\Repo;
 
 /**
  * @coversDefaultClass Harp\MP\MPRepoTrait
  */
-class MPRepoTraitTest extends AbstractTestCase
+class MPTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initializeMaterializedPath

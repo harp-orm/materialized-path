@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\MP;
+namespace Harp\MP\Model;
 
 use Harp\Harp\AbstractModel;
 use Harp\Harp\AbstractRepo;
@@ -13,7 +13,7 @@ use InvalidArgumentException;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-trait MPModelTrait
+trait MPTrait
 {
     public $path;
     public $parentId;

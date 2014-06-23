@@ -1,8 +1,10 @@
 <?php
 
-namespace Harp\MP\Test;
+namespace Harp\MP\Test\Model;
 
-use Harp\MP\MPModelTrait;
+use Harp\MP\Model\MPTrait;
+use Harp\MP\Test\Repo;
+use Harp\MP\Test\AbstractTestCase;
 
 /**
  * @coversDefaultClass Harp\MP\MPModelTrait
@@ -11,7 +13,7 @@ use Harp\MP\MPModelTrait;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class MPModelTraitTest extends AbstractTestCase
+class MPTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::getParent
@@ -38,7 +40,7 @@ class MPModelTraitTest extends AbstractTestCase
     public function testSetParentException()
     {
         $cat = Repo\Category::get()->find(1);
-        $dummy = new Model\Dummy();
+        $dummy = new Dummy();
 
         $cat->setParent($dummy);
     }
@@ -127,7 +129,7 @@ class MPModelTraitTest extends AbstractTestCase
     public function testIsAnsestorOfException()
     {
         $cat = Repo\Category::get()->find(1);
-        $dummy = new Model\Dummy();
+        $dummy = new Dummy();
 
         $cat->isAnsestorOf($dummy);
     }
@@ -139,7 +141,7 @@ class MPModelTraitTest extends AbstractTestCase
     public function testIsDescendantOfException()
     {
         $cat = Repo\Category::get()->find(1);
-        $dummy = new Model\Dummy();
+        $dummy = new Dummy();
 
         $cat->isDescendantOf($dummy);
     }
@@ -201,7 +203,7 @@ class MPModelTraitTest extends AbstractTestCase
      */
     public function testGetPathIds($path, $expected)
     {
-        $model = new Model\Category(['path' => $path]);
+        $model = new Category(['path' => $path]);
 
         $this->assertEquals($expected, $model->getPathIds());
     }

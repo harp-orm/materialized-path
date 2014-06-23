@@ -23,12 +23,7 @@
         "php": ">=5.4.0",
         "harp-orm/harp": "dev-master",
         "harp-orm/core": "dev-master",
-        "harp-orm/query": "dev-master",
-        "harp-orm/validate": "dev-master",
-        "harp-orm/serializer": "dev-master"
-    },
-    "require-dev": {
-        "psr/log": "~1.0"
+        "harp-orm/query": "dev-master"
     },
     "autoload": {
         "psr-4": {"Harp\\MP\\": "src/"}

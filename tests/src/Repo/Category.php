@@ -4,7 +4,7 @@ namespace Harp\MP\Test\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\MP\Test\Model;
-use Harp\MP\MPRepoTrait;
+use Harp\MP\Repo\MPTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,7 +13,7 @@ use Harp\MP\MPRepoTrait;
  */
 class Category extends AbstractRepo
 {
-    use MPRepoTrait;
+    use MPTrait;
 
     public static function newInstance()
     {

@@ -1,15 +1,17 @@
 <?php
 
-namespace Harp\MP;
+namespace Harp\MP\Repo;
 
 use Harp\Core\Rel\AbstractRel;
+use Harp\MP\HasMany;
+use Harp\MP\BelongsTo;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-trait MPRepoTrait
+trait MPTrait
 {
     abstract public function addRel(AbstractRel $rel);
 
