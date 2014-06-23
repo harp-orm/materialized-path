@@ -7,7 +7,7 @@ use Harp\MP\Test\Repo;
 use Harp\MP\Test\AbstractTestCase;
 
 /**
- * @coversDefaultClass Harp\MP\MPModelTrait
+ * @coversDefaultClass Harp\MP\Model\MPTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.

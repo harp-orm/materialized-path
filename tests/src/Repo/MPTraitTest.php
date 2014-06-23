@@ -6,7 +6,7 @@ use Harp\MP\Test\AbstractTestCase;
 use Harp\MP\Test\Repo;
 
 /**
- * @coversDefaultClass Harp\MP\MPRepoTrait
+ * @coversDefaultClass Harp\MP\Repo\MPTrait
  */
 class MPTraitTest extends AbstractTestCase
 {
