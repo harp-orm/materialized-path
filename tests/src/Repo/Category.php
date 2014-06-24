@@ -15,13 +15,10 @@ class Category extends AbstractRepo
 {
     use MPTrait;
 
-    public static function newInstance()
-    {
-        return new Category('Harp\MP\Test\Model\Category');
-    }
-
     public function initialize()
     {
-        $this->initializeMaterializedPath();
+        $this
+            ->setModelClass('Harp\MP\Test\Model\Category')
+            ->initializeMaterializedPath();
     }
 }

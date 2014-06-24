@@ -13,11 +13,5 @@ use Harp\MP\MPModelTrait;
  */
 class Subcategory extends Category
 {
-    /**
-     * @return Repo\Subcategory
-     */
-    public function getRepo()
-    {
-        return Repo\Subcategory::get();
-    }
+    const REPO = 'Harp\MP\Test\Repo\Subcategory';
 }

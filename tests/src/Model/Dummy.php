@@ -12,10 +12,7 @@ use Harp\MP\Test\Repo;
  */
 class Dummy extends AbstractModel
 {
-    public function getRepo()
-    {
-        return Repo\Category::get();
-    }
+    const REPO = 'Harp\MP\Test\Repo\Category';
 
     public $id;
 }

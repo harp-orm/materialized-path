@@ -3,7 +3,6 @@
 namespace Harp\MP\Test\Model;
 
 use Harp\Harp\AbstractModel;
-use Harp\MP\Test\Repo;
 use Harp\MP\Model\MPTrait;
 
 /**
@@ -13,15 +12,9 @@ use Harp\MP\Model\MPTrait;
  */
 class Category extends AbstractModel
 {
-    use MPTrait;
+    const REPO = 'Harp\MP\Test\Repo\Category';
 
-    /**
-     * @return Repo\Category
-     */
-    public function getRepo()
-    {
-        return Repo\Category::get();
-    }
+    use MPTrait;
 
     public $id;
     public $name;

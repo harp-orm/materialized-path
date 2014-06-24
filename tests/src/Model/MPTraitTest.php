@@ -3,7 +3,6 @@
 namespace Harp\MP\Test\Model;
 
 use Harp\MP\Model\MPTrait;
-use Harp\MP\Test\Repo;
 use Harp\MP\Test\AbstractTestCase;
 
 /**
@@ -21,9 +20,9 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testParent()
     {
-        $cat1 = Repo\Category::get()->find(1);
-        $cat2 = Repo\Category::get()->find(2);
-        $cat3 = Repo\Category::get()->find(4);
+        $cat1 = Category::find(1);
+        $cat2 = Category::find(2);
+        $cat3 = Category::find(4);
 
         $this->assertTrue($cat1->getParent()->isVoid());
         $this->assertFalse($cat2->isRoot());
@@ -39,7 +38,7 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testSetParentException()
     {
-        $cat = Repo\Category::get()->find(1);
+        $cat = Category::find(1);
         $dummy = new Dummy();
 
         $cat->setParent($dummy);
@@ -50,19 +49,19 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testSetParent()
     {
-        $parent = Repo\Category::get()->find(2);
-        $child = Repo\Category::get()->find(6);
+        $parent = Category::find(2);
+        $child = Category::find(6);
 
         $child->setParent($parent);
 
-        Repo\Category::get()->save($child);
+        Category::save($child);
 
         $this->assertSame('1/2', $child->path);
 
-        $leaf1 = Repo\Category::get()->find(7);
+        $leaf1 = Category::find(7);
         $this->assertSame('1/2/6', $leaf1->path);
 
-        $leaf2 = Repo\Category::get()->find(8);
+        $leaf2 = Category::find(8);
         $this->assertSame('1/2/6', $leaf2->path);
     }
 
@@ -88,8 +87,8 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testIsDescendantOf($descendantId, $ansestorId, $expected)
     {
-        $descendant = Repo\Category::get()->find($descendantId);
-        $ansestor = Repo\Category::get()->find($ansestorId);
+        $descendant = Category::find($descendantId);
+        $ansestor = Category::find($ansestorId);
 
         $this->assertSame($expected, $descendant->isDescendantOf($ansestor));
     }
@@ -116,8 +115,8 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testIsAnsestorOf($ansestorId, $descendantId, $expected)
     {
-        $ansestor = Repo\Category::get()->find($ansestorId);
-        $descendant = Repo\Category::get()->find($descendantId);
+        $ansestor = Category::find($ansestorId);
+        $descendant = Category::find($descendantId);
 
         $this->assertSame($expected, $ansestor->isAnsestorOf($descendant));
     }
@@ -128,7 +127,7 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testIsAnsestorOfException()
     {
-        $cat = Repo\Category::get()->find(1);
+        $cat = Category::find(1);
         $dummy = new Dummy();
 
         $cat->isAnsestorOf($dummy);
@@ -140,7 +139,7 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testIsDescendantOfException()
     {
-        $cat = Repo\Category::get()->find(1);
+        $cat = Category::find(1);
         $dummy = new Dummy();
 
         $cat->isDescendantOf($dummy);
@@ -153,10 +152,10 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testPath()
     {
-        $root = Repo\Category::get()->find(1);
-        $sub = Repo\Category::get()->find(6);
-        $leaf1 = Repo\Category::get()->find(7);
-        $leaf2 = Repo\Category::get()->find(8);
+        $root = Category::find(1);
+        $sub = Category::find(6);
+        $leaf1 = Category::find(7);
+        $leaf2 = Category::find(8);
 
         $this->assertEquals('1', $root->getChildrenPath());
         $this->assertEquals('1/3/6', $sub->getChildrenPath());
@@ -164,10 +163,7 @@ class MPTraitTest extends AbstractTestCase
         $sub->parentId = 2;
         $sub->setPathAndUpdateDescendants('1/2');
 
-        Repo\Category::get()
-            ->newSave()
-                ->addArray([$sub, $leaf1, $leaf2])
-                ->execute();
+        Category::saveArray([$sub, $leaf1, $leaf2]);
 
         $this->assertEquals('1/2', $sub->path);
         $this->assertEquals('1/2/6', $sub->getChildrenPath());
@@ -178,10 +174,7 @@ class MPTraitTest extends AbstractTestCase
         $sub->parentId = 0;
         $sub->setPathAndUpdateDescendants('');
 
-        Repo\Category::get()
-            ->newSave()
-                ->addArray([$sub, $leaf1, $leaf2])
-                ->execute();
+        Category::saveArray([$sub, $leaf1, $leaf2]);
 
         $this->assertEquals('', $sub->path);
         $this->assertEquals('6', $leaf1->path);
@@ -213,14 +206,14 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testGetDescendants()
     {
-        $root = Repo\Category::get()->find(1);
-        $cat1 = Repo\Category::get()->find(2);
-        $cat2 = Repo\Category::get()->find(3);
-        $sub1 = Repo\Category::get()->find(4);
-        $sub2 = Repo\Category::get()->find(5);
-        $sub3 = Repo\Category::get()->find(6);
-        $leaf1 = Repo\Category::get()->find(7);
-        $leaf2 = Repo\Category::get()->find(8);
+        $root = Category::find(1);
+        $cat1 = Category::find(2);
+        $cat2 = Category::find(3);
+        $sub1 = Category::find(4);
+        $sub2 = Category::find(5);
+        $sub3 = Category::find(6);
+        $leaf1 = Category::find(7);
+        $leaf2 = Category::find(8);
 
         $this->assertSame([$leaf1, $leaf2], $sub3->getDescendants()->toArray());
         $this->assertSame([$sub1, $sub2], $cat1->getDescendants()->toArray());
@@ -233,12 +226,12 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testChildren()
     {
-        $root = Repo\Category::get()->find(1);
-        $cat2 = Repo\Category::get()->find(2);
-        $cat3 = Repo\Category::get()->find(3);
-        $sub = Repo\Category::get()->find(6);
-        $leaf1 = Repo\Category::get()->find(7);
-        $leaf2 = Repo\Category::get()->find(8);
+        $root = Category::find(1);
+        $cat2 = Category::find(2);
+        $cat3 = Category::find(3);
+        $sub = Category::find(6);
+        $leaf1 = Category::find(7);
+        $leaf2 = Category::find(8);
 
         $this->assertInstanceOf('Harp\Core\Repo\LinkMany', $root->getChildren());
         $this->assertSame([$cat2, $cat3], $root->getChildren()->toArray());
@@ -251,7 +244,7 @@ class MPTraitTest extends AbstractTestCase
             ->getChildren()
                 ->add($sub);
 
-        Repo\Category::get()->save($root);
+        Category::save($root);
 
         $this->assertEquals([3, 6, 7, 8], $root->getDescendants()->getIds());
 
@@ -270,9 +263,9 @@ class MPTraitTest extends AbstractTestCase
      */
     public function testGetAnsestors()
     {
-        $cat1 = Repo\Category::get()->find(1);
-        $cat2 = Repo\Category::get()->find(2);
-        $cat3 = Repo\Category::get()->find(4);
+        $cat1 = Category::find(1);
+        $cat2 = Category::find(2);
+        $cat3 = Category::find(4);
 
         $parents = $cat3->getAnsestors();
 

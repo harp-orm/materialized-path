@@ -9,15 +9,12 @@ namespace Harp\MP\Test\Repo;
  */
 class Subcategory extends Category
 {
-    public static function newInstance()
-    {
-        return new Subcategory('Harp\MP\Test\Model\Subcategory');
-    }
-
     public function initialize()
     {
         parent::initialize();
 
-        $this->setRootRepo(Category::get());
+        $this
+            ->setModelClass('Harp\MP\Test\Model\Subcategory')
+            ->setRootRepo(Category::get());
     }
 }
