@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\MP\Model;
+namespace Harp\MP;
 
 use Harp\Harp\AbstractModel;
 use Harp\Harp\AbstractRepo;

@@ -40,7 +40,8 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        Repo\Category::get()->clear();
+        CategoryRepo::get()->clear();
+        SubcategoryRepo::get()->clear();
     }
 
     public function tearDown()

@@ -1,12 +1,11 @@
 <?php
 
-namespace Harp\MP\Test\Model;
+namespace Harp\MP\Test;
 
-use Harp\MP\Model\MPTrait;
-use Harp\MP\Test\AbstractTestCase;
+use Harp\MP\MPTrait;
 
 /**
- * @coversDefaultClass Harp\MP\Model\MPTrait
+ * @coversDefaultClass Harp\MP\MPTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
@@ -164,6 +163,7 @@ class MPTraitTest extends AbstractTestCase
         $sub->setPathAndUpdateDescendants('1/2');
 
         Category::saveArray([$sub, $leaf1, $leaf2]);
+
 
         $this->assertEquals('1/2', $sub->path);
         $this->assertEquals('1/2/6', $sub->getChildrenPath());

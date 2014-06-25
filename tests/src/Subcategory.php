@@ -1,10 +1,9 @@
 <?php
 
-namespace Harp\MP\Test\Model;
+namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractModel;
-use Harp\MP\Test\Repo;
-use Harp\MP\MPModelTrait;
+use Harp\MP\MPTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,5 +12,5 @@ use Harp\MP\MPModelTrait;
  */
 class Subcategory extends Category
 {
-    const REPO = 'Harp\MP\Test\Repo\Subcategory';
+    const REPO = 'Harp\MP\Test\SubcategoryRepo';
 }

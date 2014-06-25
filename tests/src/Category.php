@@ -1,9 +1,10 @@
 <?php
 
-namespace Harp\MP\Test\Model;
+namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractModel;
-use Harp\MP\Model\MPTrait;
+use Harp\Core\Model\InheritedTrait;
+use Harp\MP\MPTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -12,9 +13,10 @@ use Harp\MP\Model\MPTrait;
  */
 class Category extends AbstractModel
 {
-    const REPO = 'Harp\MP\Test\Repo\Category';
+    const REPO = 'Harp\MP\Test\CategoryRepo';
 
     use MPTrait;
+    use InheritedTrait;
 
     public $id;
     public $name;

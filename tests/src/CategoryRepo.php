@@ -1,24 +1,25 @@
 <?php
 
-namespace Harp\MP\Test\Repo;
+namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractRepo;
 use Harp\MP\Test\Model;
-use Harp\MP\Repo\MPTrait;
+use Harp\MP\MPRepoTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class Category extends AbstractRepo
+class CategoryRepo extends AbstractRepo
 {
-    use MPTrait;
+    use MPRepoTrait;
 
     public function initialize()
     {
         $this
-            ->setModelClass('Harp\MP\Test\Model\Category')
+            ->setModelClass(__NAMESPACE__.'\Category')
+            ->setInherited(true)
             ->initializeMaterializedPath();
     }
 }

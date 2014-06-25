@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\MP\Test\Repo;
+namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractRepo;
 
@@ -14,6 +14,6 @@ class Dummy extends AbstractRepo
     public function initialize()
     {
         $this
-            ->setModelClass('Harp\MP\Test\Model\Dummy');
+            ->setModelClass('Harp\MP\Test\Dummy');
     }
 }

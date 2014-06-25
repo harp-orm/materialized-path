@@ -1,9 +1,8 @@
 <?php
 
-namespace Harp\MP\Test\Model;
+namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractModel;
-use Harp\MP\Test\Repo;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -12,7 +11,7 @@ use Harp\MP\Test\Repo;
  */
 class Dummy extends AbstractModel
 {
-    const REPO = 'Harp\MP\Test\Repo\Category';
+    const REPO = 'Harp\MP\Test\CategoryRepo';
 
     public $id;
 }
