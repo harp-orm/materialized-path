@@ -1,6 +1,6 @@
 {
     "name": "harp-orm/materialized-path",
-    "description": "Materialized path nesting for Harp ORM models  ",
+    "description": "Materialized path nesting for Harp ORM models",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -9,20 +9,9 @@
             "role": "Author"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/harp-orm/core"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/harp-orm/harp"
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
-        "harp-orm/harp": "dev-master",
-        "harp-orm/core": "dev-master"
+        "harp-orm/harp": "0.1.0"
     },
     "autoload": {
         "psr-4": {"Harp\\MP\\": "src/"}

@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f79be29061d551b1ad2325906cbc527",
+    "hash": "b2284018e4cefb3f151c14d7ddf2c72e",
     "packages": [
         {
             "name": "harp-orm/core",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "c2b560e12df45c3cfc63771058def2a84c09a860"
+                "reference": "db7511aba14554f08bb7f0862e523027d0b252bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/c2b560e12df45c3cfc63771058def2a84c09a860",
-                "reference": "c2b560e12df45c3cfc63771058def2a84c09a860",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/db7511aba14554f08bb7f0862e523027d0b252bd",
+                "reference": "db7511aba14554f08bb7f0862e523027d0b252bd",
                 "shasum": ""
             },
             "require": {
@@ -36,6 +36,7 @@
                     "Harp\\Core\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -43,32 +44,29 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ikerin@gmail.com",
+                    "homepage": "http://www.openbuildings.com",
                     "role": "Author"
                 }
             ],
             "description": "DataMapper style ORM Core Componenets",
-            "support": {
-                "source": "https://github.com/harp-orm/core/tree/master",
-                "issues": "https://github.com/harp-orm/core/issues"
-            },
-            "time": "2014-06-24 21:25:38"
+            "time": "2014-06-26 12:44:21"
         },
         {
             "name": "harp-orm/harp",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "85955db40a3d63dbaff3f544a5ca78e983968a94"
+                "reference": "706281cac51c24dc7f88f72a9456c1123e4dabbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/85955db40a3d63dbaff3f544a5ca78e983968a94",
-                "reference": "85955db40a3d63dbaff3f544a5ca78e983968a94",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/706281cac51c24dc7f88f72a9456c1123e4dabbd",
+                "reference": "706281cac51c24dc7f88f72a9456c1123e4dabbd",
                 "shasum": ""
             },
             "require": {
-                "harp-orm/core": "dev-master",
+                "harp-orm/core": "~0.1.0",
                 "harp-orm/query": "~0.2.1",
                 "php": ">=5.4.0",
                 "psr/log": "~1.0"
@@ -79,6 +77,7 @@
                     "Harp\\Harp\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -86,15 +85,12 @@
                 {
                     "name": "Ivan Kerin",
                     "email": "ikerin@gmail.com",
+                    "homepage": "http://www.openbuildings.com",
                     "role": "Author"
                 }
             ],
             "description": "Light and Flexible ORM without magic",
-            "support": {
-                "source": "https://github.com/harp-orm/harp/tree/master",
-                "issues": "https://github.com/harp-orm/harp/issues"
-            },
-            "time": "2014-06-25 09:57:48"
+            "time": "2014-06-26 13:37:35"
         },
         {
             "name": "harp-orm/query",
@@ -295,10 +291,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "harp-orm/harp": 20,
-        "harp-orm/core": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.4.0"
     },
