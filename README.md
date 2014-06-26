@@ -44,8 +44,7 @@ class Category extends AbstractRepo
 
 ```
 
-Database
---------
+__Database Table:__
 
 ```
 ┌─────────────────────────┐
