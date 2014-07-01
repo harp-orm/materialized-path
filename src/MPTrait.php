@@ -36,17 +36,18 @@ trait MPTrait
      */
     public function getParent()
     {
-        return $this->getLink('parent')->get();
+        return $this->getLinkedModel('parent');
     }
 
     /**
+     * @param  AbstractModel $model
      * @return AbstractModel $this
      */
     public function setParent(AbstractModel $model)
     {
         $this->getRepo()->assertModel($model);
 
-        $this->getLink('parent')->set($model);
+        $this->setLinkedModel('parent', $model);
 
         return $this;
     }
@@ -56,7 +57,7 @@ trait MPTrait
      */
     public function getChildren()
     {
-        return $this->getLink('children');
+        return $this->getLinkMany('children');
     }
 
     /**
