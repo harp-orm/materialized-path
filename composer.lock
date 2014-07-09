@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "07b2bb5705925501540f2ce6d1b3937f5a6620d5"
+                "reference": "c38a2133cb4a5f12f3e15cd75a922a39e3cab83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/07b2bb5705925501540f2ce6d1b3937f5a6620d5",
-                "reference": "07b2bb5705925501540f2ce6d1b3937f5a6620d5",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/c38a2133cb4a5f12f3e15cd75a922a39e3cab83c",
+                "reference": "c38a2133cb4a5f12f3e15cd75a922a39e3cab83c",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 }
             ],
             "description": "DataMapper style ORM Core Componenets",
-            "time": "2014-07-07 14:56:40"
+            "time": "2014-07-09 11:52:07"
         },
         {
             "name": "harp-orm/harp",

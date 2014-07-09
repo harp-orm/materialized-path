@@ -42,7 +42,7 @@ trait MaterializedPathTrait
      * @param  string $name
      * @return \Harp\Core\Models\AbstractModel
      */
-    abstract public function set($name, \Harp\Core\Models\AbstractModel $Model);
+    abstract public function set($name, \Harp\Core\Models\AbstractModel $model);
 
     /**
      * @param  string $name
