@@ -4,7 +4,7 @@ namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractModel;
 use Harp\Core\Model\InheritedTrait;
-use Harp\MP\MPTrait;
+use Harp\MP\MaterializedPathTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,10 +13,14 @@ use Harp\MP\MPTrait;
  */
 class Category extends AbstractModel
 {
-    const REPO = 'Harp\MP\Test\CategoryRepo';
-
-    use MPTrait;
+    use MaterializedPathTrait;
     use InheritedTrait;
+
+    public static function initialize($repo)
+    {
+        MaterializedPathTrait::initialize($repo);
+        InheritedTrait::initialize($repo);
+    }
 
     public $id;
     public $name;

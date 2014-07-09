@@ -3,18 +3,24 @@
 namespace Harp\MP;
 
 use Harp\Harp\AbstractModel;
-use Harp\Harp\AbstractRepo;
+use Harp\Harp\Repo;
 use Harp\Core\Model\Models;
 use Harp\Core\Repo\AbstractLink;
-use InvalidArgumentException;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-trait MPTrait
+trait MaterializedPathTrait
 {
+    public static function initialize(Repo $repo)
+    {
+        return $repo
+            ->addRel(new BelongsTo('parent', $repo, $repo))
+            ->addRel(new HasMany('children', $repo, $repo, ['foreignKey' => 'parentId']));
+    }
+
     public $path;
     public $parentId;
 
@@ -24,11 +30,6 @@ trait MPTrait
      */
     abstract public function getLink($name);
 
-    /**
-     * @return AbstractRepo
-     */
-    abstract public function getRepo();
-
     abstract public function getId();
 
     /**
@@ -36,7 +37,7 @@ trait MPTrait
      */
     public function getParent()
     {
-        return $this->getLinkedModel('parent');
+        return $this->get('parent');
     }
 
     /**
@@ -45,9 +46,9 @@ trait MPTrait
      */
     public function setParent(AbstractModel $model)
     {
-        $this->getRepo()->assertModel($model);
+        static::getRepo()->assertModel($model);
 
-        $this->setLinkedModel('parent', $model);
+        $this->set('parent', $model);
 
         return $this;
     }
@@ -57,7 +58,7 @@ trait MPTrait
      */
     public function getChildren()
     {
-        return $this->getLinkMany('children');
+        return $this->all('children');
     }
 
     /**
@@ -67,29 +68,27 @@ trait MPTrait
     {
         $path = $this->getChildrenPath();
 
-        return $this->getRepo()->findAll()->whereLike('path', "{$path}%")->load();
+        return static::whereLike('path', "{$path}%")->load();
     }
 
     /**
      * @param  AbstractModel $model
-     * @throws InvalidArgumentException If model not part of the repo
      * @return boolean
      */
     public function isDescendantOf(AbstractModel $model)
     {
-        $this->getRepo()->assertModel($model);
+        static::getRepo()->assertModel($model);
 
         return in_array($model->getId(), $this->getPathIds());
     }
 
     /**
      * @param  AbstractModel $model
-     * @throws InvalidArgumentException If model not part of the repo
      * @return boolean
      */
     public function isAnsestorOf(AbstractModel $model)
     {
-        $this->getRepo()->assertModel($model);
+        static::getRepo()->assertModel($model);
 
         return $model->isDescendantOf($this);
     }
@@ -154,11 +153,7 @@ trait MPTrait
         if (empty($pathIds)) {
             return new Models();
         } else {
-            $repo = $this->getRepo();
-
-            return $repo->findAll()
-                ->whereIn($repo->getPrimaryKey(), $pathIds)
-                ->load();
+            return static::whereIn(static::getPrimaryKey(), $pathIds)->load();
         }
     }
 }

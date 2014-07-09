@@ -4,7 +4,7 @@ namespace Harp\MP\Test;
 
 use Harp\Query\DB;
 use PHPUnit_Framework_TestCase;
-use Harp\MP\Test\Repo;
+use Harp\Core\Repo\Container;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -40,8 +40,7 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        CategoryRepo::get()->clear();
-        SubcategoryRepo::get()->clear();
+        Container::clear();
     }
 
     public function tearDown()

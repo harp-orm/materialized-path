@@ -12,5 +12,11 @@ use Harp\MP\MPTrait;
  */
 class Subcategory extends Category
 {
-    const REPO = 'Harp\MP\Test\SubcategoryRepo';
+    public static function initialize($repo)
+    {
+        parent::initialize($repo);
+
+        $repo
+            ->setRootRepo(Category::getRepo());
+    }
 }

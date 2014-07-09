@@ -11,7 +11,5 @@ use Harp\Harp\AbstractModel;
  */
 class Dummy extends AbstractModel
 {
-    const REPO = 'Harp\MP\Test\CategoryRepo';
-
     public $id;
 }

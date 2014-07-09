@@ -17,31 +17,19 @@ Usage
 Add the Traits to your Model / Repo
 
 ```php
-// Model Class
-use Harp\MP\MPTrait;
+use Harp\Harp\AbstractModel;
+use Harp\MP\MaterializedPathTrait;
 
 class Category extends AbstractModel
 {
-    use MPTrait;
-    // ...
-}
-
-// Repo Class
-use Harp\MP\MPTrait;
-
-class Category extends AbstractRepo
-{
-    use MPRepoTrait;
-
-    public function initialize()
+    public static function initialize($repo)
     {
-        $this->initializeMaterializedPath();
+        MaterializedPathTrait::initialize($repo);
 
         // Other initializations
         // ...
     }
 }
-
 ```
 
 __Database Table:__

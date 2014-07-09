@@ -20,7 +20,7 @@ class HasManyTest extends AbstractTestCase
      */
     public function testUpdate()
     {
-        $repo = CategoryRepo::get();
+        $repo = Category::getRepo();
         $model = new Category(['id' => 6, 'path' => '1/4']);
 
         $model1 = $this->getMock(

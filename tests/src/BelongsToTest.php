@@ -20,7 +20,7 @@ class BelongsToTest extends AbstractTestCase
      */
     public function testUpdate()
     {
-        $repo = CategoryRepo::get();
+        $repo = Category::getRepo();
         $model1 = $this->getMock(__NAMESPACE__.'\Category', ['setPathAndUpdateDescendants']);
         $model2 = new Category(['id' => 6, 'path' => '1/4']);
 

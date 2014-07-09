@@ -2,17 +2,28 @@
 
 namespace Harp\MP\Test;
 
-use Harp\MP\MPTrait;
+use Harp\MP\MaterializedPathTrait;
 
 /**
- * @coversDefaultClass Harp\MP\MPTrait
+ * @coversDefaultClass Harp\MP\MaterializedPathTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class MPTraitTest extends AbstractTestCase
+class MaterializedPathTraitTest extends AbstractTestCase
 {
+    /**
+     * @covers ::initialize
+     */
+    public function testInitialize()
+    {
+        $repo = Category::getRepo();
+
+        $this->assertInstanceOf('Harp\Harp\Rel\BelongsTo', $repo->getRel('parent'));
+        $this->assertInstanceOf('Harp\Harp\Rel\HasMany', $repo->getRel('children'));
+    }
+
     /**
      * @covers ::getParent
      * @covers ::isRoot
