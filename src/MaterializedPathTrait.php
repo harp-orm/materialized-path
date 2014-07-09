@@ -33,6 +33,24 @@ trait MaterializedPathTrait
     abstract public function getId();
 
     /**
+     * @param  string $name
+     * @return AbstractModel
+     */
+    abstract public function get($name);
+
+    /**
+     * @param  string $name
+     * @return \Harp\Core\Models\AbstractModel
+     */
+    abstract public function set($name, \Harp\Core\Models\AbstractModel $Model);
+
+    /**
+     * @param  string $name
+     * @return \Harp\Core\Repo\LinkMany
+     */
+    abstract public function all($name);
+
+    /**
      * @return AbstractModel
      */
     public function getParent()
