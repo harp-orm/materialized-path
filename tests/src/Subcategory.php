@@ -12,11 +12,8 @@ use Harp\MP\MPTrait;
  */
 class Subcategory extends Category
 {
-    public static function initialize($repo)
+    public static function initialize($config)
     {
-        parent::initialize($repo);
-
-        $repo
-            ->setRootRepo(Category::getRepo());
+        parent::initialize($config);
     }
 }

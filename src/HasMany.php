@@ -3,8 +3,8 @@
 namespace Harp\MP;
 
 use Harp\Harp\Rel;
-use Harp\Core\Model\Models;
-use Harp\Core\Repo\LinkMany;
+use Harp\Harp\Model\Models;
+use Harp\Harp\Repo\LinkMany;
 
 /**
  * @author     Ivan Kerin

@@ -4,7 +4,7 @@ namespace Harp\MP\Test;
 
 use Harp\Query\DB;
 use PHPUnit_Framework_TestCase;
-use Harp\Core\Repo\Container;
+use Harp\Harp\Repo\Container;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>

@@ -3,7 +3,7 @@
 namespace Harp\MP;
 
 use Harp\Harp\Rel;
-use Harp\Core\Repo\LinkOne;
+use Harp\Harp\Repo\LinkOne;
 
 /**
  * @author     Ivan Kerin

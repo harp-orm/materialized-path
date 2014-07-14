@@ -244,7 +244,7 @@ class MaterializedPathTraitTest extends AbstractTestCase
         $leaf1 = Category::find(7);
         $leaf2 = Category::find(8);
 
-        $this->assertInstanceOf('Harp\Core\Repo\LinkMany', $root->getChildren());
+        $this->assertInstanceOf('Harp\Harp\Repo\LinkMany', $root->getChildren());
         $this->assertSame([$cat2, $cat3], $root->getChildren()->toArray());
 
         $root
@@ -280,11 +280,11 @@ class MaterializedPathTraitTest extends AbstractTestCase
 
         $parents = $cat3->getAnsestors();
 
-        $this->assertInstanceOf('Harp\Core\Model\Models', $parents);
+        $this->assertInstanceOf('Harp\Harp\Model\Models', $parents);
         $this->assertSame([$cat1, $cat2], $parents->toArray());
 
         $parents = $cat1->getAnsestors();
 
-        $this->assertInstanceOf('Harp\Core\Model\Models', $parents);
+        $this->assertInstanceOf('Harp\Harp\Model\Models', $parents);
         $this->assertCount(0, $parents->toArray());
     }}

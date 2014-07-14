@@ -3,8 +3,8 @@
 namespace Harp\MP\Test;
 
 use Harp\MP\BelongsTo;
-use Harp\Core\Repo\LinkOne;
-use Harp\Core\Model\Models;
+use Harp\Harp\Repo\LinkOne;
+use Harp\Harp\Model\Models;
 
 /**
  * @coversDefaultClass Harp\MP\BelongsTo
@@ -33,7 +33,7 @@ class BelongsToTest extends AbstractTestCase
             ->will($this->returnValue($models));
 
 
-        $rel = new BelongsTo('test', $repo, $repo);
+        $rel = new BelongsTo('test', $repo->getConfig(), $repo);
 
         $link = new LinkOne($model1, $rel, $model1);
 

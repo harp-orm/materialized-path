@@ -3,8 +3,8 @@
 namespace Harp\MP\Test;
 
 use Harp\MP\HasMany;
-use Harp\Core\Repo\LinkMany;
-use Harp\Core\Model\Models;
+use Harp\Harp\Repo\LinkMany;
+use Harp\Harp\Model\Models;
 
 /**
  * @coversDefaultClass Harp\MP\HasMany
@@ -50,7 +50,7 @@ class HasManyTest extends AbstractTestCase
             ->with('')
             ->will($this->returnValue($removed));
 
-        $rel = new HasMany('test', $repo, $repo);
+        $rel = new HasMany('test', $repo->getConfig(), $repo);
 
         $link = new LinkMany($model, $rel, [$model2]);
 

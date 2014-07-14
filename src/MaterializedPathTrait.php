@@ -3,9 +3,8 @@
 namespace Harp\MP;
 
 use Harp\Harp\AbstractModel;
-use Harp\Harp\Repo;
-use Harp\Core\Model\Models;
-use Harp\Core\Repo\AbstractLink;
+use Harp\Harp\Config;
+use Harp\Harp\Model\Models;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -14,21 +13,22 @@ use Harp\Core\Repo\AbstractLink;
  */
 trait MaterializedPathTrait
 {
-    public static function initialize(Repo $repo)
+    /**
+     * Adds 'parent' and 'children' rels
+     *
+     * @param  Config $config
+     */
+    public static function initialize(Config $config)
     {
-        return $repo
-            ->addRel(new BelongsTo('parent', $repo, $repo))
-            ->addRel(new HasMany('children', $repo, $repo, ['foreignKey' => 'parentId']));
+        $class = $config->getModelClass();
+
+        return $config
+            ->addRel(new BelongsTo('parent', $config, $class::getRepo()))
+            ->addRel(new HasMany('children', $config, $class::getRepo(), ['foreignKey' => 'parentId']));
     }
 
     public $path;
     public $parentId;
-
-    /**
-     * @param  string $name
-     * @return AbstractLink
-     */
-    abstract public function getLink($name);
 
     abstract public function getId();
 
@@ -40,9 +40,9 @@ trait MaterializedPathTrait
 
     /**
      * @param  string $name
-     * @return \Harp\Core\Models\AbstractModel
+     * @return AbstractModel
      */
-    abstract public function set($name, \Harp\Core\Model\AbstractModel $model);
+    abstract public function set($name, AbstractModel $model);
 
     /**
      * @param  string $name

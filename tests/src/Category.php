@@ -3,7 +3,7 @@
 namespace Harp\MP\Test;
 
 use Harp\Harp\AbstractModel;
-use Harp\Core\Model\InheritedTrait;
+use Harp\Harp\Model\InheritedTrait;
 use Harp\MP\MaterializedPathTrait;
 
 /**
@@ -16,10 +16,10 @@ class Category extends AbstractModel
     use MaterializedPathTrait;
     use InheritedTrait;
 
-    public static function initialize($repo)
+    public static function initialize($config)
     {
-        MaterializedPathTrait::initialize($repo);
-        InheritedTrait::initialize($repo);
+        MaterializedPathTrait::initialize($config);
+        InheritedTrait::initialize($config);
     }
 
     public $id;

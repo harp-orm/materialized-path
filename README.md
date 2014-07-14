@@ -14,7 +14,7 @@ This package does not implement the most advanced implementation, but it works q
 Usage
 -----
 
-Add the Traits to your Model / Repo
+Add the Trait to your Model
 
 ```php
 use Harp\Harp\AbstractModel;
@@ -22,9 +22,9 @@ use Harp\MP\MaterializedPathTrait;
 
 class Category extends AbstractModel
 {
-    public static function initialize($repo)
+    public static function initialize($config)
     {
-        MaterializedPathTrait::initialize($repo);
+        MaterializedPathTrait::initialize($config);
 
         // Other initializations
         // ...
