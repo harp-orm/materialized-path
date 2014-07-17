@@ -128,6 +128,14 @@ trait MaterializedPathTrait
     }
 
     /**
+     * @return integer
+     */
+    public function getDepth()
+    {
+        return count($this->getPathIds());
+    }
+
+    /**
      * @return string
      */
     public function getChildrenPath()

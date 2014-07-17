@@ -212,6 +212,26 @@ class MaterializedPathTraitTest extends AbstractTestCase
         $this->assertEquals($expected, $model->getPathIds());
     }
 
+    public function dataGetDepth()
+    {
+        return [
+            [null, 0],
+            ['1/3', 2],
+            ['1/3/8/5', 4],
+        ];
+    }
+
+    /**
+     * @covers ::getDepth
+     * @dataProvider dataGetDepth
+     */
+    public function testGetDepth($path, $expected)
+    {
+        $model = new Category(['path' => $path]);
+
+        $this->assertEquals($expected, $model->getDepth());
+    }
+
     /**
      * @covers ::getDescendants
      */
